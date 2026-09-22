@@ -14,6 +14,7 @@ const addItemButton = document.getElementById('add-item-button');
 const list = document.getElementById('list');
 const sortBtn = document.getElementById('sort')
 const clearBtn = document.getElementById('clear')
+const textBox = document.getElementById('text')
 
 
 
@@ -31,6 +32,18 @@ function updateList() {
 
 updateList();
 
+//when enter is pressed in textbox, add to list
+textBox.addEventListener('keyup',function(e){
+    if (e.key === 'Enter') {
+    const text = document.getElementById('text');
+    if(text.value.trim() !== "")
+    {
+        todoItems.push(text.value);
+        text.value ="";
+    }
+    updateList();
+  }
+});
 
 
 // 4. Handle adding a new item when the form is submitted
